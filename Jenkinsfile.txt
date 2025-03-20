@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        label 'slave' // label of Jenkins slave
+    }
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Welkinoid52/test.git'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    sh '''
+                        # Pull the latest Docker images
+                        docker-compose pull
+
+                        # Stop and remove existing containers (if any)
+                        docker-compose down
+
+                        # Start the application
+                        docker-compose up -d
+                    '''
+                }
+            }
+        }
+    }
+}
