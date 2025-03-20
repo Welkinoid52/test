@@ -20,4 +20,4 @@ Jenkins-slave ec2 instance is created with port exposed shown in image and below
   sudo usermod -aG docker ec2-user
   newgrp docker
 
-
+On Jenkins master the node created must be up, create  new item -> pipeline, mention github, paste jenkinfile, save, run.
