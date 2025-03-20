@@ -21,3 +21,5 @@ Jenkins-slave ec2 instance is created with port exposed shown in image and below
   newgrp docker
 
 On Jenkins master the node created must be up, create  new item -> pipeline, mention github, paste jenkinfile, save, run.
+
+Here master is on localhost. so was unable to connect using SSH. To resolve this used ngrok tool, it forwarded localhost to public domain, and made connection possible with ec2 slave.
